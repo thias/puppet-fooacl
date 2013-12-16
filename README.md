@@ -74,3 +74,35 @@ foo { 'bar':
 }
 ```
 
+More advanced example :
+```puppet
+# Global webmasters
+fooacl { 'default':
+  permissions => [
+    'user:userA:rwX',
+    'user:userB:rwX',
+  ],
+}
+# Frontend website webmasters
+fooacl { 'frontend':
+  target => [
+    '/var/www/frontend.example.com',
+    '/var/www/frontend.example.org',
+  ],
+  permissions => [
+    'user:userX:rwX',
+    'user:userY:rwX',
+  ],
+}
+# Backend website webmasters
+fooacl { 'backend':
+  target => [
+    '/var/www/backend.example.com',
+    '/var/www/backend.example.org',
+  ],
+  permissions => [
+    'user:userZ:rwX',
+  ],
+}
+```
+

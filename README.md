@@ -34,7 +34,7 @@ Module content :
 
 A typical declaration from anywhere in your puppet manifests :
 ```puppet
-fooacl { '/var/www/www.example.com':
+fooacl::conf { '/var/www/www.example.com':
   permissions => [
     'user:userA:rwX',
     'user:userB:rwX',
@@ -47,7 +47,7 @@ From anywhere else, you may set more ACLs for the same
 `/var/www/www.example.com` directory as long as you don't use the same
 `$title` (that would cause a duplicate declatation), so you would do :
 ```puppet
-fooacl { 'www.example.com-other-team':
+fooacl::conf { 'www.example.com-other-team':
   target      => '/var/www/www.example.com',
   permissions => [
     'user:userC:rwX',
@@ -77,14 +77,14 @@ foo { 'bar':
 More advanced example :
 ```puppet
 # Global webmasters
-fooacl { 'default':
+fooacl::conf { 'default':
   permissions => [
     'user:userA:rwX',
     'user:userB:rwX',
   ],
 }
 # Frontend website webmasters
-fooacl { 'frontend':
+fooacl::conf { 'frontend':
   target => [
     '/var/www/frontend.example.com',
     '/var/www/frontend.example.org',
@@ -95,7 +95,7 @@ fooacl { 'frontend':
   ],
 }
 # Backend website webmasters
-fooacl { 'backend':
+fooacl::conf { 'backend':
   target => [
     '/var/www/backend.example.com',
     '/var/www/backend.example.org',

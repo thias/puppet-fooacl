@@ -1,0 +1,6 @@
+
+# Apply the ACLs. Any existing ACLs will be replaced
+for DIR in ${!ACLOPTS[@]}; do
+  setfacl ${ACLOPTS_GLOBAL} ${ACLOPTS[${DIR}]} ${DIR}
+done
+

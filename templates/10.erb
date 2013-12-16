@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Initial global ACLs for each path to manage
+ACLOPTS_GLOBAL="-R -b"
+
+# Create array to store ACLs, with keys for each path to manage
+declare -A ACLOPTS
+
+# Construct the final ACLs from snippets

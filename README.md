@@ -7,27 +7,28 @@ Manage POSIX filesystem ACLs with Puppet.
 Most (all?) other ACL modules implement a type which can be declared only once
 per file, which isn't flexible. This module takes the unusual approach of
 creating a single large concatenated script to manage all ACLs recursively in
-a single run.
+a single run. Ugly, yet very efficient and flexible since ACLs aren't tied to
+the `file` type in any way.
+
+Features :
+* Set ACLs for the same path from different parts of your puppet manifests
+  (flexible).
+* Set global ACL permissions to be applied for all paths managed by the module
+  (flexible).
+* Automatic purging of ACLs on paths as long as at least one ACL is still
+  being applied by the module (remove users easily and reliably).
+* Automatic setting of both normal and default ACLs to the same values
+  (shortens declarations, increases code readability).
+
+Limitations :
+* No purging once paths are no longer being managed by the module.
+* Any ACL changes trigger re-applying all ACLs (fine for a few thousands
+  files, but typically an issue for millions of files).
 
 Module content :
 * `fooacl` : Class to start managing ACLs with the module (`fooacl::conf`
   automatically includes it).
 * `fooacl::conf`: Definition to manage ACLs configuration.
-
-Features :
-* Set ACLs for the same path from different parts of your puppet manifests
-  (flexible).
-* Automatic purging of ACLs on paths as long as at least one ACL is still
-  being applied by the module (remove users easily and reliably).
-* Automatic setting of both normal and default ACLs to the same values
-  (less parameters, increase code readability).
-* Ability to set 'default' ACL permissions to be applied for all paths
-  managed by the module (flexible).
-
-Limitations :
-* No purging once paths are no longer being managed by the module.
-* Any ACL change triggers re-applying all ACLs (fine for a few thousands
-  files, but typically an issue for millions of files).
 
 ## Examples
 
@@ -67,6 +68,9 @@ If you need to order some of your resources with the execution of the script
 contained in the module (e.g. refresh when you modify uid or gid values), use :
 
 ```puppet
-notify => Class['::fooacl']
+foo { 'bar':
+  ...
+  notify => Class['::fooacl'],
+}
 ```
 

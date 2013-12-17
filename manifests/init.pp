@@ -5,9 +5,14 @@
 # Sample Usage :
 #  include '::fooacl'
 #
-class fooacl {
+class fooacl ( $noop = false ) {
 
   include '::concat::setup'
+
+  $notify = $noop ? {
+    true  => undef,
+    false => Exec['/usr/local/sbin/fooacl'],
+  }
 
   # Main script, to apply ACLs when the configuration changes
   exec { '/usr/local/sbin/fooacl':
@@ -15,7 +20,7 @@ class fooacl {
   }
   concat { '/usr/local/sbin/fooacl':
     mode   => '0755',
-    notify => Exec['/usr/local/sbin/fooacl'],
+    notify => $notify,
   }
   concat::fragment { 'fooacl-header':
     target  => '/usr/local/sbin/fooacl',

@@ -1,7 +1,7 @@
 <% @target.each do |f| -%>
 <% if f == 'default' -%>
-ACLOPTS_GLOBAL+="<% @permissions.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
+ACLOPTS_GLOBAL+="<%@permissions.each do |p| %> -m <%= p %> --set d:<%= p %><% end %>"
 <% else -%>
-ACLOPTS[<%= f %>]+="<% @permissions.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
+     '<%= f %>' => '<% @permissions.each do |p| %> -m <%= p %> --set d:<%= p %><% end %>',
 <% end -%>
 <% end -%>

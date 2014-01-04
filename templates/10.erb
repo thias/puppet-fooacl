@@ -1,9 +1,7 @@
-#!/bin/bash
-
+#!/usr/bin/php
+<?php
 # Initial global ACLs for each path to manage
-ACLOPTS_GLOBAL="-R -b"
-
-# Create array to store ACLs, with keys for each path to manage
-declare -A ACLOPTS
+$aclopts_global = "-R -b";
 
 # Construct the final ACLs from snippets
+$aclopts = array(

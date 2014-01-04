@@ -1,6 +1,14 @@
+);
 
-# Apply the ACLs. Any existing ACLs will be replaced
-for DIR in ${!ACLOPTS[@]}; do
-  setfacl ${ACLOPTS_GLOBAL} ${ACLOPTS[${DIR}]} ${DIR}
-done
+
+// Sort array
+ksort($aclopts);
+
+foreach($aclopts as $dir => $acl_arg) {
+   $cmd = "setfacl $aclopts_global $acl_arg $dir\n";
+   echo exec('echo ' .  $cmd) . "\n";
+   exec($cmd) . "\n";
+}
+
+?>
 

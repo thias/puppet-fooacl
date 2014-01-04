@@ -11,7 +11,7 @@ define fooacl::conf (
   include '::fooacl'
 
   concat::fragment { $title:
-    target  => '/usr/local/sbin/fooacl',
+    target  => '/usr/local/sbin/fooacl.php',
     order   => $order,
     content => template("${module_name}/20.erb"),
   }

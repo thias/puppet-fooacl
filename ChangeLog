@@ -1,3 +1,5 @@
+* Sort so that sub-directory ACLs get applied after parent directory ACLs.
+
 2013-12-16 - 0.1.0
 * Initial module release.
 

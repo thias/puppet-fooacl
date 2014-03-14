@@ -1,3 +1,7 @@
+2014-03-14 - 0.1.2
+* Fix misconfigured dependency on puppetlabs/concat causing librarian-puppet
+  and probably others to barf.
+
 2014-02-11 - 0.1.1
 * Sort so that sub-directory ACLs get applied after parent directory ACLs.
 

@@ -5,11 +5,11 @@
 # Sample Usage :
 #  include '::fooacl'
 #
-class fooacl ( $noop = false ) {
+class fooacl ( $fooacl_noop = false ) {
 
   include '::concat::setup'
 
-  $notify = $noop ? {
+  $notify = $fooacl_noop ? {
     true  => undef,
     false => Exec['/usr/local/sbin/fooacl'],
   }

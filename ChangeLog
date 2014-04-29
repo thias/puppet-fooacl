@@ -1,4 +1,6 @@
+2014-04-29 - 0.1.3
 * Enable permissions to be nested arrays.
+* Rename 'noop' to 'fooacl_noop' because of reserved metaparameter name.
 
 2014-03-14 - 0.1.2
 * Fix puppetlabs/concat requirement syntax causing librarian-puppet to fail.

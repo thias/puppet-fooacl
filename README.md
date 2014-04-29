@@ -108,10 +108,10 @@ fooacl::conf { 'backend':
 
 ## Debugging
 
-You can set the module `noop` globally using hiera :
+You can set the module `fooacl_noop` globally using hiera :
 ```yaml
 ---
-fooacl::noop: true
+fooacl::fooacl_noop: true
 ```
 
 After which the `/usr/local/sbin/fooacl` script will get updated but won't

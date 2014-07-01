@@ -5,9 +5,18 @@
 # Sample Usage :
 #  include '::fooacl'
 #
-class fooacl ( $fooacl_noop = false ) {
+class fooacl (
+  $fooacl_noop      = false,
+  $acl_package_name = $::fooacl::params::acl_package_name,
+) inherits ::fooacl::params {
 
   include '::concat::setup'
+
+  if $acl_package_name {
+    package { $acl_package_name:
+      ensure => 'present',
+    }
+  }
 
   $notify = $fooacl_noop ? {
     true  => undef,
@@ -17,6 +26,7 @@ class fooacl ( $fooacl_noop = false ) {
   # Main script, to apply ACLs when the configuration changes
   exec { '/usr/local/sbin/fooacl':
     refreshonly => true,
+    require     => Package[$acl_package_name],
   }
   concat { '/usr/local/sbin/fooacl':
     mode   => '0755',

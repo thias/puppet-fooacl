@@ -1,3 +1,5 @@
+* Fix 20.erb template parse error (#8).
+
 2014-04-29 - 0.1.3
 * Enable permissions to be nested arrays.
 * Rename 'noop' to 'fooacl_noop' because of reserved metaparameter name.

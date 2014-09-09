@@ -1,4 +1,13 @@
-<% @target.each do |f| -%>
+<%
+if @target.is_a?(String)
+  target = @target.lines
+elsif @target.is_a?(Array)
+  target = @target
+else
+  fail("The target must be a string or an array")
+end
+-%>
+<% target.each do |f| -%>
 <% if f == 'default' -%>
 ACLOPTS_GLOBAL+="<% @permissions.flatten.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
 <% else -%>

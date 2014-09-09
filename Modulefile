@@ -1,5 +1,5 @@
 name 'thias-fooacl'
-version '0.1.3'
+version '1.0.0'
 source 'git://github.com/thias/puppet-fooacl'
 author 'Matthias Saou'
 license 'Apache 2.0'

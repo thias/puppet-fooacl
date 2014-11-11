@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Make sure we catch *any* of the errors we might have
+set -e
+
 # Initial global ACLs for each path to manage
 ACLOPTS_GLOBAL="-R -b"
 

@@ -1,3 +1,5 @@
+* Add 'set -e' for exit status to be non-zero for any error (#9, @ngiger).
+
 2014-09-09 - 1.0.0
 * Install required packages for acl functionality (#6, @Slashbunny).
 * Fix 20.erb template parse error (#8).

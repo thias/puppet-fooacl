@@ -10,8 +10,6 @@ class fooacl (
   $acl_package_name = $::fooacl::params::acl_package_name,
 ) inherits ::fooacl::params {
 
-  include '::concat::setup'
-
   if $acl_package_name {
     package { $acl_package_name:
       ensure => 'present',

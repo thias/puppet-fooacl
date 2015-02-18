@@ -6,6 +6,7 @@ define fooacl::conf (
   $target      = $name,
   $order       = 20,
   $permissions,
+  $modifyonly  = false,
 ) {
 
   include '::fooacl'

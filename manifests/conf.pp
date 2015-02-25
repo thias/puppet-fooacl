@@ -3,9 +3,9 @@
 # Configure the Posix ACLs set by the script from the fooacl class.
 #
 define fooacl::conf (
+  $permissions,
   $target      = $name,
   $order       = 20,
-  $permissions,
 ) {
 
   include '::fooacl'
@@ -17,4 +17,3 @@ define fooacl::conf (
   }
 
 }
-

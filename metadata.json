@@ -1,0 +1,46 @@
+{
+  "name": "thias-fooacl",
+  "version": "1.0.1",
+  "author": "Matthias Saou",
+  "license": "Apache-2.0",
+  "summary": "POSIX filesystem ACLs module",
+  "source": "https://github.com/thias/puppet-fooacl",
+  "project_page": "https://forge.puppetlabs.com/thias/fooacl",
+  "issues_url": "https://github.com/thias/puppet-fooacl/issues",
+  "tags": ["posix", "acl", "setfacl"],
+  "operatingsystem_support": [
+    {
+    "operatingsystem": "RedHat",
+    "operatingsystemrelease": [ "5", "6", "7" ]
+    },
+    {
+    "operatingsystem": "CentOS",
+    "operatingsystemrelease": [ "5", "6", "7" ]
+    },
+    {
+    "operatingsystem":"Debian",
+    "operatingsystemrelease":[ "6", "7" ]
+    },
+    {
+    "operatingsystem":"Ubuntu",
+    "operatingsystemrelease":[ "12", "14" ]
+    }
+  ],
+  "requirements": [
+    {
+    "name": "pe",
+    "version_requirement": "3.x"
+    },
+    {
+    "name": "puppet",
+    "version_requirement": ">=2.7.20 <4.0.0"
+    }
+  ],
+  "description": "Manage POSIX filesystem ACLs in a flexible way with puppet.",
+  "dependencies": [
+    {
+    "name": "puppetlabs/concat",
+    "version_requirement": ">= 1.0.0"
+    }
+  ]
+}

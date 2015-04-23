@@ -7,6 +7,23 @@ set -e
 ACLOPTS_GLOBAL="-R -b"
 
 # Create array to store ACLs, with keys for each path to manage
-declare -A ACLOPTS
+ACLOPTS=()
+
+# Used for emulating associative array for bash 3.0
+function setkey {
+  target=$1
+
+  # Loop through and find key
+  for (( i=0; i < ${#KEY_MAP[*]}; i++ )) {
+    if [ "${KEY_MAP[$i]}" == "$target" ]; then
+      KEY=$i
+      return
+    fi
+  }
+
+  # If key not found, create one
+  KEY_MAP[$i]=$target
+  KEY=$i
+}
 
 # Construct the final ACLs from snippets

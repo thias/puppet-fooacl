@@ -11,6 +11,7 @@ end
 <% if f == 'default' -%>
 ACLOPTS_GLOBAL+="<% @permissions.flatten.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
 <% else -%>
-ACLOPTS[<%= f %>]+="<% @permissions.flatten.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
+setkey "<%= f %>"
+ACLOPTS[$KEY]+="<% @permissions.flatten.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
 <% end -%>
 <% end -%>

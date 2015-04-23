@@ -1,7 +1,9 @@
 
-# Apply the ACLs. Any existing ACLs will be replaced
-DIRSORTED="$(for DIR in "${!ACLOPTS[@]}"; do echo $DIR; done | sort)"
-for DIR in ${DIRSORTED}; do
-  setfacl ${ACLOPTS_GLOBAL} ${ACLOPTS[${DIR}]} ${DIR}
-done
+# Sort directories
+DIRSORTED="$(for DIR in "${KEY_MAP[@]}"; do echo $DIR; done | sort)"
 
+# Apply the ACLs. Any existing ACLs will be replaced
+for DIR in ${DIRSORTED}; do
+  setkey $DIR
+  setfacl ${ACLOPTS_GLOBAL} ${ACLOPTS[${KEY}]} ${DIR}
+done

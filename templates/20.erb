@@ -3,8 +3,6 @@ if @target.is_a?(String)
   target = @target.lines
 elsif @target.is_a?(Array)
   target = @target
-else
-  fail("The target must be a string or an array")
 end
 -%>
 <% target.each do |f| -%>

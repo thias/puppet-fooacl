@@ -5,7 +5,7 @@
 define fooacl::conf (
   $permissions,
   $target      = $name,
-  $order       = 20,
+  $order       = 20
 ) {
 
   include '::fooacl'

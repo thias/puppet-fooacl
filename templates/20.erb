@@ -9,9 +9,9 @@ end
 -%>
 <% target.each do |f| -%>
 <% if f == 'default' -%>
-ACLOPTS_GLOBAL+="<% @permissions.flatten.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
+ACLOPTS_GLOBAL="${ACLOPTS_GLOBAL}<% @permissions.flatten.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
 <% else -%>
 setkey "<%= f %>"
-ACLOPTS[$KEY]+="<% @permissions.flatten.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
+ACLOPTS[$KEY]="${ACLOPTS[$KEY]}<% @permissions.flatten.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
 <% end -%>
 <% end -%>

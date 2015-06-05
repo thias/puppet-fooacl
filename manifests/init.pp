@@ -7,7 +7,7 @@
 #
 class fooacl (
   $fooacl_noop      = false,
-  $acl_package_name = $::fooacl::params::acl_package_name,
+  $acl_package_name = $::fooacl::params::acl_package_name
 ) inherits ::fooacl::params {
 
   if $acl_package_name {

@@ -10,6 +10,8 @@ if @permissions.is_a?(String)
     permissions = [_permissions]
   elsif _permissions.is_a?(Array)
     permissions = _permissions
+  elsif _permissions.is_a?(Enumerable)
+    permissions = _permissions.to_a
   else
     fail("Wrong type for permissions: #{_permissions.class}")
   end

@@ -8,6 +8,14 @@ define fooacl::conf (
   $order       = 20,
 ) {
 
+  if ! (is_string($target) or is_array($target)) {
+    fail('$target must be a string or an array')
+  }
+
+  if ! (is_string($permissions) or is_array($permissions)) {
+    fail('$permissions must be a string or an array')
+  }
+
   include '::fooacl'
 
   concat::fragment { $title:

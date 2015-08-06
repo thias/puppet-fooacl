@@ -33,14 +33,18 @@
     },
     {
     "name": "puppet",
-    "version_requirement": ">=2.7.20 <4.0.0"
+    "version_requirement": ">=2.7.20 <5.0.0"
     }
   ],
   "description": "Manage POSIX filesystem ACLs in a flexible way with puppet.",
   "dependencies": [
     {
     "name": "puppetlabs/concat",
-    "version_requirement": ">= 1.0.0"
+    "version_requirement": ">= 1.0.0 < 2.0.0"
+    },
+    {
+    "name": "puppetlabs/stdlib",
+    "version_requirement": ">= 4.2.0"
     }
   ]
 }

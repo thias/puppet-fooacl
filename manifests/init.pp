@@ -8,6 +8,8 @@
 class fooacl (
   $fooacl_noop      = false,
   $acl_package_name = $::fooacl::params::acl_package_name,
+  $target = undef,
+  $permissions = undef,
 ) inherits ::fooacl::params {
 
   if $acl_package_name {

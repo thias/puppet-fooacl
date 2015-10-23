@@ -1,4 +1,0 @@
-fixtures:
-  symlinks:
-    fooacl: "#{source_dir}"
-    concat: "#{source_dir}/../concat/"

@@ -43,4 +43,5 @@ class fooacl (
     content => template("${module_name}/30.erb"),
   }
 
+  fooacl::conf { $target: }
 }

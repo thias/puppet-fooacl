@@ -3,7 +3,7 @@
 # Configure the Posix ACLs set by the script from the fooacl class.
 #
 define fooacl::conf (
-  $permissions,
+  $permissions = $fooacl::permissions,
   $target      = $name,
   $order       = 20,
 ) {

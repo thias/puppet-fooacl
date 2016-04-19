@@ -5,6 +5,7 @@
 define fooacl::conf (
   $permissions,
   $target      = $name,
+  $recurse     = true,
   $order       = 20,
 ) {
 

@@ -6,7 +6,7 @@ Manage POSIX filesystem ACLs with Puppet.
 
 Most (all?) other ACL modules implement a type which can be declared only once
 per file, which isn't flexible. This module takes the unusual approach of
-creating a single large concatenated script to manage all ACLs recursively in
+creating a single large concatenated script to manage all ACLs in
 a single run. Ugly, yet very efficient and flexible since ACLs aren't tied to
 the `file` type in any way.
 
@@ -103,6 +103,17 @@ fooacl::conf { 'backend':
   permissions => [
     'user:userZ:rwX',
   ],
+}
+# Some configuration file
+fooacl::conf { configuration':
+  target => [
+    '/etc/nginx/sites-available/backend.example.com.conf',
+    '/etc/nginx/sites-available/backend.example.org.conf',
+  ],
+  permissions => [
+    'user:userZ:rwX',
+  ],
+  recursive => false,
 }
 ```
 

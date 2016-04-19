@@ -11,6 +11,6 @@ end
 <% if f == 'default' -%>
 ACLOPTS_GLOBAL+="<% @permissions.flatten.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
 <% else -%>
-ACLOPTS[<%= f %>]+="<% @permissions.flatten.each do |p| %> -m <%= p %> -m d:<%= p %><% end %>"
+ACLOPTS[<%= f %>]+="<% if @recurse %>-R<% end %><% @permissions.flatten.each do |p| %> -m <%= p %><%if @recurse %>-m d:<%= p %><% end %><% end %>"
 <% end -%>
 <% end -%>

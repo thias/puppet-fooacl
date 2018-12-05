@@ -6,6 +6,7 @@
 #  include '::fooacl'
 #
 class fooacl (
+  $acl_opts_global    = '-R -b',
   $fooacl_noop        = false,
   $acl_package_ensure = 'present',
   $acl_package_name   = $::fooacl::params::acl_package_name,

@@ -6,13 +6,15 @@
 #  include '::fooacl'
 #
 class fooacl (
-  $fooacl_noop      = false,
-  $acl_package_name = $::fooacl::params::acl_package_name,
+  $acl_opts_global    = '-R -b',
+  $fooacl_noop        = false,
+  $acl_package_ensure = 'present',
+  $acl_package_name   = $::fooacl::params::acl_package_name,
 ) inherits ::fooacl::params {
 
   if $acl_package_name {
     package { $acl_package_name:
-      ensure => 'present',
+      ensure => $acl_package_ensure,
     }
   }
 

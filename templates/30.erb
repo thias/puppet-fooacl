@@ -1,9 +1,7 @@
 
 # Apply the ACLs. Any existing ACLs will be replaced
 DIRSORTED="$(for DIR in "${!ACLOPTS[@]}"; do echo $DIR; done | sort)"
-IFS=$'\n'
-for DIR in ${DIRSORTED}; do
+while read -r DIR ; do
   setfacl ${ACLOPTS_GLOBAL} ${ACLOPTS[${DIR}]} ${DIR}
-done
-unset IFS
+done <<< "${DIRSORTED}"
 

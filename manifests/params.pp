@@ -3,7 +3,7 @@
 # Per-platform parameters for fooacl class
 #
 class fooacl::params {
-  case $::osfamily {
+  case $facts['os']['family'] {
     'gentoo': {
       $acl_package_name = 'sys-apps/acl'
     }

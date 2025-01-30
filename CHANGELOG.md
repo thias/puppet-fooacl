@@ -1,3 +1,5 @@
+* Remove legacy facts usage.
+
 #### 2015-02-25 - 1.0.1
 * Add 'set -e' for exit status to be non-zero for any error (#9, @ngiger).
 * No longer include concat::setup as it is deprecated.

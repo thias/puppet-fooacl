@@ -1,3 +1,4 @@
+#### 2025-07-08 - 1.0.3
 * Use ensure_packages to support requiring acl package from elsewhere.
 
 #### 2025-02-04 - 1.0.2

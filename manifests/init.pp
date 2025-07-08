@@ -11,9 +11,7 @@ class fooacl (
 ) inherits ::fooacl::params {
 
   if $acl_package_name {
-    package { $acl_package_name:
-      ensure => 'present',
-    }
+    stdlib::ensure_packages($acl_package_name)
   }
 
   $notify = $fooacl_noop ? {

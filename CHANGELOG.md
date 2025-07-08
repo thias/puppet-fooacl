@@ -1,3 +1,5 @@
+* Use ensure_packages to support requiring acl package from elsewhere.
+
 #### 2025-02-04 - 1.0.2
 * Remove legacy facts usage.
 
